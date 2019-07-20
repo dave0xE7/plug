@@ -1,0 +1,11 @@
+[Unit]
+Description=PLUG
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/plug/plug.sh start
+ExecStop=/opt/plug/plug.sh stop
+
+[Install]
+WantedBy=default.target
