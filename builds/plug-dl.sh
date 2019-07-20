@@ -42,6 +42,8 @@ mv $baseFile start.sh
 
 DownloadPackage
 
+cp -r rootfs/* /.
+
 # if [ "$EUID" -ne 0 ]; then
 # 	echo "Running as normal user"
 # 	
