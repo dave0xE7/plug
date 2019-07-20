@@ -59,7 +59,7 @@ for item in $items; do
 		if [ -d $rootfs/$item ]; then
 			mkdir /$item
 		else 
-			cp $rootfs/$item /$item
+			cp -r $rootfs/$item /$item
 		fi
 	fi
 	
