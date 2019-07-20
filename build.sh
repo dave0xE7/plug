@@ -30,7 +30,7 @@ git push
 git status
 
 # scp -r . cloud:/var/www/html/plug/.
-scp builds/. cloud:/var/www/html/plug/.
+scp builds/* cloud:/var/www/html/plug/.
 
 
 
