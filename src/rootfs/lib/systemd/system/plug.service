@@ -4,7 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/plug
+ExecStart=/opt/plug/plug.sh start
+ExecStop=/opt/plug/plug.sh stop
 #TimeoutStartSec=0
 
 [Install]
