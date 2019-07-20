@@ -35,6 +35,8 @@ if [ ! -d $tempPath ]; then
 fi
 cd $tempPath
 
+rm -rf *
+
 pwd
 mv $baseFile start.sh
 
