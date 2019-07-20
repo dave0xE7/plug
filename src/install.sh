@@ -8,4 +8,4 @@ echo "$dlbasePath"
 
 wget $pkgURL
 
-tar -vxf plug.tar
+tar -vxf plug.tar /.
