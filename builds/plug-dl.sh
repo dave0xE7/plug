@@ -40,8 +40,8 @@ mv $baseFile start.sh
 
 DownloadPackage
 
-if [ "$EUID" -ne 0 ]
-	then echo "Running as normal user"
+if [ "$EUID" -ne 0 ]; then
+	echo "Running as normal user"
 	
 else
 	echo "Running as root"
