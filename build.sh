@@ -9,16 +9,16 @@ echo "basePath is $basePath"
 echo "buildPath is $buildPath"
 echo "sourcePath is $sourcePath"
 
-echo "going to $sourcePath"
 cd $sourcePath
+ls -la
 
 tar -cvf $buildPath/plug.tar *
 
 cd $buildPath
-pwd
-ls
+ls -la
 
 cd $basePath
+ls -la
 
 git status
 git add *
