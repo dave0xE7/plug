@@ -33,11 +33,11 @@ function DownloadPackage() {
 	wget $pkgURL
 	tar -vxf plug.tar -C $tempPath
 }
-function CheckTargetDir() {
-	if [ ! -d $installPath ]; then
-		mkdir $installPath
-	fi
-}
+# function CheckTargetDir() {
+# 	if [ ! -d $installPath ]; then
+# 		mkdir $installPath
+# 	fi
+# }
 
 # tempDir=$(mktemp -d)
 # cd $tempDir
@@ -52,10 +52,10 @@ mv $baseFile start.sh
 
 DownloadPackage
 
-if [ "$EUID" -ne 0 ]
+if [ "$EUID" -ne 0 ];
 	then echo "Running as normal user"
 	
-else
+else;
 	echo "Running as root"
 	
 fi
