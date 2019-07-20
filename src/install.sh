@@ -6,10 +6,16 @@ dlbasePath=$(pwd)
  
 echo "$dlbasePath"
 
+tempDir=$(mktemp -d)
+
+cd $tempDir
+pwd
+ls -la
+
 wget $pkgURL
 
-tar -vxf plug.tar /.
+tar -vxf plug.tar 
 
-if [ -e $file ]; do
-	:
+if [ ! -d $installPath ]; do
+	mkdir $installPath
 done
