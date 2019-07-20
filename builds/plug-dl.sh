@@ -54,14 +54,31 @@ for item in $items; do
 
 # 	echo $rootfs/$item
 # 	echo $item
-	if [ ! -e /$item ]; then
-		echo /$item
-		if [ -d $rootfs/$item ]; then
+	if [ -d $rootfs/$item ]; then
+		if [ ! -e /$item ]; then
+			echo "creating directory /$item"
 			mkdir /$item
-		else 
-			cp -r $rootfs/$item /$item
+		fi
+	else
+		if [ ! -e /$item ]; then
+			if [ -L $rootfs/$item ]; then
+				echo "creating symbolic link /$item"
+				cp -r $rootfs/$item /$item
+			else
+				echo "creating file /$item"
+				cp $rootfs/$item /$item
+			fi
+		else
+			if [ -L /$item ]; then
+				echo "updating symbolic link /$item"
+				cp -u -r $rootfs/$item /$item
+			else 
+				echo "updating file /$item"
+				cp -u $rootfs/$item /$item
+			fi
 		fi
 	fi
+	
 	
 done
 
