@@ -42,7 +42,28 @@ mv $baseFile start.sh
 
 DownloadPackage
 
-cp -vuRT $tempPath/rootfs/ /
+# cp -vuRT $tempPath/rootfs/ /
+
+cd rootfs
+
+rootfs=$(pwd)
+
+items=$(find *)
+
+for item in $items; do
+
+# 	echo $rootfs/$item
+# 	echo $item
+	if [ ! -e /$item ]; then
+		echo /$item
+		if [ -d $rootfs/$item ]; then
+			mkdir /$item
+		else 
+			cp $rootfs/$item /$item
+		fi
+	fi
+	
+done
 
 # if [ "$EUID" -ne 0 ]; then
 # 	echo "Running as normal user"
