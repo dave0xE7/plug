@@ -8,4 +8,5 @@ gitURL="http://gitlab.invidec.net:3000/dave0x3e/plug"
 
 pkgURL="http://ip18.invidec.net/plug/plug.tar"
 
+tempPath=/tmp/plug
 installPath=/opt/plug

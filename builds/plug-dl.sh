@@ -8,27 +8,50 @@ gitURL="http://gitlab.invidec.net:3000/dave0x3e/plug"
 
 pkgURL="http://ip18.invidec.net/plug/plug.tar"
 
+tempPath=/tmp/plug
 installPath=/opt/plug
 #!/bin/bash
 
- 
 
-dlbasePath=$(pwd)
- 
-echo "$dlbasePath"
+#	Copyright 2019 INVIDEC.NET
+#	
+#	This File is Part of the PLUG Project
+
+# config
+pkgURL="http://ip18.invidec.net/plug/plug.tar"
+#
+tempPath=/tmp/plug
+installPath=/opt/plug
+#
+
+basePath=$(pwd)
+scriptName=$0
+baseFile="$basePath$scriptName"
+
+
+function DownloadPackage() {
+	wget $pkgURL
+	tar -vxf plug.tar -C /
+}
+function CheckTargetDir() {
+	if [ ! -d $installPath ]; then
+		mkdir $installPath
+	fi
+}
 
 tempDir=$(mktemp -d)
-
 cd $tempDir
 
-
 pwd
-ls -la
+mv $baseFile start.sh
 
-wget $pkgURL
+DownloadPackage
 
-tar -vxf plug.tar 
-
-if [ ! -d $installPath ]; then
-	mkdir $installPath
+if [ "$EUID" -ne 0 ]
+	then echo "Running as normal user"
+	
+else
+	echo "Running as root"
+	
 fi
+
