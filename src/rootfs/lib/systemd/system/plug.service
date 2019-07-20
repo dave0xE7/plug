@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/test.sh
-TimeoutStartSec=0
+ExecStart=/usr/bin/plug
+#TimeoutStartSec=0
 
 [Install]
 WantedBy=default.target
