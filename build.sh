@@ -17,3 +17,11 @@ tar -cvf $buildPath/plug.tar *
 cd $buildPath
 pwd
 ls
+
+cd $basePath
+
+git status
+git add *
+git commit -m "auto commit"
+git push
+git status
