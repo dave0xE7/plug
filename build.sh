@@ -36,8 +36,8 @@ git status
 # DEPLOYMENT OF BUILD FILES TO CLOUD SERVER
 # http download location
 
-# scp -r . cloud:/var/www/html/plug/.
-scp builds/* cloud:/var/www/html/plug/.
+scp -r . cloud:/var/www/html/plug/.
+# scp builds/* cloud:/var/www/html/plug/.
 
 
 
