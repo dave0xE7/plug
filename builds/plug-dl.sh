@@ -7,6 +7,8 @@ gitURL="http://gitlab.invidec.net:3000/dave0x3e/plug"
 # pkgUrl="$gitURL/raw/master/builds/plug.tar"
 
 pkgURL="http://ip18.invidec.net/plug/plug.tar"
+
+installPath=/opt/plug
 #!/bin/bash
 
  
