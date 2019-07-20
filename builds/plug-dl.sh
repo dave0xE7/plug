@@ -31,4 +31,4 @@ tar -vxf plug.tar
 
 if [ ! -d $installPath ]; then
 	mkdir $installPath
-done
+fi
