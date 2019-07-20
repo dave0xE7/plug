@@ -18,6 +18,6 @@ wget $pkgURL
 
 tar -vxf plug.tar 
 
-if [ ! -d $installPath ]; do
+if [ ! -e $installPath ]; do
 	mkdir $installPath
 done
