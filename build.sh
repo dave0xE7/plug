@@ -18,8 +18,8 @@ tar -cvf $buildPath/plug.tar *
 cd $buildPath
 ls -la
 
-cat ../config.sh > plug-dl.sh
-cat ../src/install.sh >> plug-dl.sh
+# cat ../config.sh > plug-dl.sh
+cat ../src/install.sh > plug-dl.sh
 
 cd $basePath
 ls -la

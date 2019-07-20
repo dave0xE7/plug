@@ -1,17 +1,5 @@
 #!/bin/bash
 
- 
-gitURL="http://gitlab.invidec.net:3000/dave0x3e/plug"
-
-# dlsUrl="http://gitlab.invidec.net:3000/dave0x3e/plug/raw/master/builds/plug-dl.sh"
-# pkgUrl="$gitURL/raw/master/builds/plug.tar"
-
-pkgURL="http://ip18.invidec.net/plug/plug.tar"
-
-tempPath=/tmp/plug
-installPath=/opt/plug
-#!/bin/bash
-
 
 #	Copyright 2019 INVIDEC.NET
 #	
