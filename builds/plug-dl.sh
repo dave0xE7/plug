@@ -31,7 +31,7 @@ baseFile="$basePath$scriptName"
 
 function DownloadPackage() {
 	wget $pkgURL
-	tar -vxf plug.tar -C /
+	tar -vxf plug.tar -C $tempPath
 }
 function CheckTargetDir() {
 	if [ ! -d $installPath ]; then
@@ -39,8 +39,13 @@ function CheckTargetDir() {
 	fi
 }
 
-tempDir=$(mktemp -d)
-cd $tempDir
+# tempDir=$(mktemp -d)
+# cd $tempDir
+
+if [ ! -d $tempPath ]; then
+	mkdir $tempPath
+else
+cd $tempPath
 
 pwd
 mv $baseFile start.sh
