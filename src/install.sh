@@ -12,13 +12,15 @@ tempPath=/tmp/plug
 installPath=/opt/plug
 #
 
+clear
+
 basePath=$(pwd)
 scriptName=$0
 baseFile="$basePath/$scriptName"
 
 
 function DownloadPackage {
-	wget $pkgURL
+	wget -q $pkgURL
 	tar -vxf plug.tar -C $tempPath
 }
 # function CheckTargetDir() {
