@@ -1,7 +1,9 @@
+#!/bin/bash
+
  
 
- dlbasePath=$(pwd)
+dlbasePath=$(pwd)
  
- echo "$dlbasePath"
+echo "$dlbasePath"
 
- tar -vxf plug.tar
+tar -vxf plug.tar
