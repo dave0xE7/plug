@@ -6,6 +6,6 @@ dlbasePath=$(pwd)
  
 echo "$dlbasePath"
 
-wget $pkgUrl
+wget $pkgURL
 
 tar -vxf plug.tar
