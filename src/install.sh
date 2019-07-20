@@ -9,6 +9,8 @@ echo "$dlbasePath"
 tempDir=$(mktemp -d)
 
 cd $tempDir
+
+
 pwd
 ls -la
 
