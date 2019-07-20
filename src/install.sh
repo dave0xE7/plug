@@ -32,7 +32,7 @@ function DownloadPackage() {
 
 if [ ! -d $tempPath ]; then
 	mkdir $tempPath
-else
+fi
 cd $tempPath
 
 pwd
