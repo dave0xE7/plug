@@ -14,7 +14,7 @@ installPath=/opt/plug
 
 basePath=$(pwd)
 scriptName=$0
-baseFile="$basePath$scriptName"
+baseFile="$basePath/$scriptName"
 
 
 function DownloadPackage {
