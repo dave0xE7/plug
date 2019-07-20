@@ -21,7 +21,7 @@ baseFile="$basePath/$scriptName"
 
 function DownloadPackage {
 	wget -q $pkgURL
-	tar -vxf plug.tar -C $tempPath
+	tar -xf plug.tar -C $tempPath
 }
 # function CheckTargetDir() {
 # 	if [ ! -d $installPath ]; then
