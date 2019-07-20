@@ -17,7 +17,7 @@ scriptName=$0
 baseFile="$basePath$scriptName"
 
 
-function DownloadPackage() {
+function DownloadPackage {
 	wget $pkgURL
 	tar -vxf plug.tar -C $tempPath
 }
