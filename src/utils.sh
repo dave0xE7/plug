@@ -7,6 +7,6 @@ function command_exists() {
 }
 
 function random_string() {
-	length=${$1:-12}
+	length=${1:-12}
 	tr -dc A-Za-z0-9_ < /dev/urandom  | head -c$length | xargs
 }
