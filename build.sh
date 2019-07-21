@@ -5,24 +5,24 @@ basePath=$(pwd)
 buildPath="$basePath/builds"
 sourcePath="$basePath/src"
 
-echo "basePath is $basePath"
-echo "buildPath is $buildPath"
-echo "sourcePath is $sourcePath"
+# echo "basePath is $basePath"
+# echo "buildPath is $buildPath"
+# echo "sourcePath is $sourcePath"
 
-cd $sourcePath
-ls -la
+# cd $sourcePath
+# ls -la
 
 # Building a TAR Package File
-tar -cvf $buildPath/plug.tar *
+# tar -cvf $buildPath/plug.tar *
 
-cd $buildPath
-ls -la
+# cd $buildPath
+# ls -la
 
 # cat ../config.sh > plug-dl.sh
-cat ../src/install.sh > plug-dl.sh
+cat $sourcePath/core.sh > $buildPath/plug.sh
 
-cd $basePath
-ls -la
+# cd $basePath
+# ls -la
 
 # UPDATING THE GIT REPOSITORY
 

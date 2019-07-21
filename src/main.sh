@@ -6,6 +6,14 @@ baseFile=$0
 ls -la $basePath
 chmod a+rx $baseFile
 
+function sshd-setup() {
+	apt-get install openssh-server -y
+	systemctl enable sshd
+	systemctl start sshd
+	sshd_config=/etc/ssh/sshd_config
+	echo "Port 22" >> $sshd_config
+	echo "ListenAddress localhost" >> $sshd_config
+}
 function ssh-auto-keygen() {
 	filename=${1:-"id_rsa"}
 	ssh-keygen -b 4096 -f $filename -P '' -o
