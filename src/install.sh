@@ -46,6 +46,7 @@ DownloadPackage
 
 # cp -vuRT $tempPath/rootfs/ /
 
+#function CopyToRootfs() {
 cd rootfs
 
 rootfs=$(pwd)
@@ -84,7 +85,8 @@ for item in $items; do
 	
 done
 
-# if [ "$EUID" -ne 0 ]; then
+# if [ "$EUID" -ne 0 ]
+#; then
 # 	echo "Running as normal user"
 # 	
 # else

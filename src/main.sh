@@ -6,6 +6,8 @@ baseFile=$0
 ls -la $basePath
 chmod a+rx $baseFile
 
+source utils.sh
+
 function sshd-setup() {
 	apt-get install openssh-server -y
 	systemctl enable sshd
@@ -72,9 +74,44 @@ function RootAction() {
 	CreateSystemdFile
 	InitSystemdService
 }
-if [ $EUID -ne 0 ]; then
-	echo "Run this script as root or sudo user!"
-	UserAction
-else
-	RootAction
-fi
+function Init() {
+	if [ $EUID -ne 0 ]; then
+		echo "Run this script as root or sudo user!"
+		UserAction
+	else
+		RootAction
+	fi
+}
+function Daemon() {
+
+	while [ true ]; do
+
+		//code
+
+	done
+
+}
+function Status() {
+	echo "staus"
+	DebugCheckDir /opt/plug
+
+}
+function Version() {
+	echo "# plug v0.0.1 - invidec.net"
+}
+function Help() {
+	echo "plug <command>"
+	echo ""
+	echo "available commands:"
+	echo "	help	> shows this info"
+	echo "	version	> shows version"
+	echo "	init	> initializing installation"
+	echo "	daemon	> runs the daemon "
+}
+case $1 in
+	init) Init;;
+	daemon) Daemon;;
+	status) Status;;
+	version|-v) Version;;
+	help|*) Help;;
+esac
