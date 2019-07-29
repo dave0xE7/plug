@@ -1,12 +1,10 @@
 #!/bin/bash
 
  
-gitURL="http://gitlab.invidec.net:3000/dave0x3e/plug"
+gitlabURL="http://gitlab.invidec.net:3000/dave0x3e/plug.git"
+githubURL="https://github.com/dave0xE7/plug.git"
 
 # dlsUrl="http://gitlab.invidec.net:3000/dave0x3e/plug/raw/master/builds/plug-dl.sh"
 # pkgUrl="$gitURL/raw/master/builds/plug.tar"
 
-pkgURL="http://ip18.invidec.net/plug/plug.tar"
-
-tempPath=/tmp/plug
-installPath=/opt/plug
+repoURL="http://ip18.invidec.net/plug/"

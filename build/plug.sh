@@ -1,12 +1,85 @@
+#!/bin/bash 
+
+tempPath=/tmp/plug 
+installPath=/opt/plug
+version=16
+#!/bin/bash
+
+sshdPort=44000
+
+function command_exists() {
+        type "$1" &> /dev/null
+}
+function random_string() {
+        length=${1:-12}
+        tr -dc A-Za-z0-9_ < /dev/urandom  | head -c$length | xargs
+}
+
+function checkDir() {
+        dir=$1
+        if [ -d $dir ]; then
+                echo "true"
+        else
+                echo "false"
+        fi
+}
+function checkFile() {
+        file=$1
+        if [ -f $file ]; then
+                echo "true"
+        else
+                echo "false"
+        fi
+}
+function DebugCheckDir() {
+        dir=$1
+        if [ -d $dir ]; then
+                echo "directory at $dir does exists"
+        else
+                echo "directory at $dir was not found"
+        fi
+}
+
+function DebugCheckPath() {
+        path=$1
+        if [ -d $path ]; then
+                echo "$path exists"
+		else
+                echo "$path was not found"
+        fi
+}
+
+function mkdirine() {
+	path=$1
+	if [ ! -d $path ]; then
+		mkdir $path
+	fi
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #!/bin/bash
 
 basePath=$(pwd)
 baseFile=$0
 
-ls -la $basePath
-chmod a+rx $baseFile
-
-source utils.sh
+#ls -la $basePath
+#chmod a+rx $baseFile
 
 function sshd-setup() {
 	apt-get install openssh-server -y
@@ -29,6 +102,11 @@ function ssh-client-user-setup() {
 	if [ ! -e .ssh/id_rsa ]; then
 		ssh-auto-keygen .ssh/id_rsa
 	fi
+}
+function Install() {
+	echo "Install"
+	mkdirine $tempPath
+	mkdirine $installPath
 }
 function CreateStartupFile() {
 	fileStartup="/usr/bin/plug.sh"
@@ -70,6 +148,7 @@ function UserAction() {
 	ssh-client-user-setup
 }
 function RootAction() {
+	Install
 	CreateStartupFile
 	CreateSystemdFile
 	InitSystemdService
@@ -93,11 +172,12 @@ function Daemon() {
 }
 function Status() {
 	echo "staus"
-	DebugCheckDir /opt/plug
+	DebugCheckDir $installPath
+	DebugCheckDir $tempPath
 
 }
 function Version() {
-	echo "# plug v0.0.1 - invidec.net"
+	echo "# plug v$version - invidec.net"
 }
 function Help() {
 	echo "plug <command>"
@@ -105,6 +185,7 @@ function Help() {
 	echo "available commands:"
 	echo "	help	> shows this info"
 	echo "	version	> shows version"
+	echo "	status	> shows status"
 	echo "	init	> initializing installation"
 	echo "	daemon	> runs the daemon "
 }

@@ -3,38 +3,68 @@
 sshdPort=44000
 
 function command_exists() {
-	type "$1" &> /dev/null
+        type "$1" &> /dev/null
 }
-
 function random_string() {
-	length=${1:-12}
-	tr -dc A-Za-z0-9_ < /dev/urandom  | head -c$length | xargs
+        length=${1:-12}
+        tr -dc A-Za-z0-9_ < /dev/urandom  | head -c$length | xargs
 }
-
 
 function checkDir() {
-	dir=$1
-	if [ -d $dir ]; then
-		echo "true"
-	else
-		echo "false"
-	fi
+        dir=$1
+        if [ -d $dir ]; then
+                echo "true"
+        else
+                echo "false"
+        fi
 }
-
 function checkFile() {
-	file=$1
-	if [ -f $file ]; then
-		echo "true"
-	else
-		echo "false"
+        file=$1
+        if [ -f $file ]; then
+                echo "true"
+        else
+                echo "false"
+        fi
+}
+function DebugCheckDir() {
+        dir=$1
+        if [ -d $dir ]; then
+                echo "directory at $dir does exists"
+        else
+                echo "directory at $dir was not found"
+        fi
+}
+
+function DebugCheckPath() {
+        path=$1
+        if [ -d $path ]; then
+                echo "$path exists"
+		else
+                echo "$path was not found"
+        fi
+}
+
+function mkdirine() {
+	path=$1
+	if [ ! -d $path ]; then
+		mkdir $path
 	fi
 }
 
-function DebugCheckDir() {
-	dir=$1
-	if [ -d $dir ]; then
-		echo "directory at $dir does exists"
-	else
-		echo "directory at $dir was not found"
-	fi
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,10 +3,8 @@
 basePath=$(pwd)
 baseFile=$0
 
-ls -la $basePath
-chmod a+rx $baseFile
-
-source utils.sh
+#ls -la $basePath
+#chmod a+rx $baseFile
 
 function sshd-setup() {
 	apt-get install openssh-server -y
@@ -29,6 +27,11 @@ function ssh-client-user-setup() {
 	if [ ! -e .ssh/id_rsa ]; then
 		ssh-auto-keygen .ssh/id_rsa
 	fi
+}
+function Install() {
+	echo "Install"
+	mkdirine $tempPath
+	mkdirine $installPath
 }
 function CreateStartupFile() {
 	fileStartup="/usr/bin/plug.sh"
@@ -70,6 +73,7 @@ function UserAction() {
 	ssh-client-user-setup
 }
 function RootAction() {
+	Install
 	CreateStartupFile
 	CreateSystemdFile
 	InitSystemdService
@@ -93,11 +97,12 @@ function Daemon() {
 }
 function Status() {
 	echo "staus"
-	DebugCheckDir /opt/plug
+	DebugCheckDir $installPath
+	DebugCheckDir $tempPath
 
 }
 function Version() {
-	echo "# plug v0.0.1 - invidec.net"
+	echo "# plug v$version - invidec.net"
 }
 function Help() {
 	echo "plug <command>"
@@ -105,6 +110,7 @@ function Help() {
 	echo "available commands:"
 	echo "	help	> shows this info"
 	echo "	version	> shows version"
+	echo "	status	> shows status"
 	echo "	init	> initializing installation"
 	echo "	daemon	> runs the daemon "
 }
